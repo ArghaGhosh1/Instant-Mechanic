@@ -120,7 +120,7 @@ The Android application communicates with a **Spring Boot REST API** to retrieve
 
 ### 🔗 Backend Repository
 
-[View Instant Mechanic Backend](https://github.com/ArghaGhosh1/Instant-Mechanic-Backend)
+[View Instant Mechanic Backend](https://github.com/ArghaGhosh1/instant-mechanic-backend.git)
 
 ---
 
