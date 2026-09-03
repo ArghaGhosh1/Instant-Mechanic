@@ -1,139 +1,157 @@
-# 🔧 Instant Mechanic
+# 🚗 Instant Mechanic
 
-Instant Mechanic is an Android application that helps users discover nearby mechanics/garages, view their services and details, and submit a service request.
-
-The application is built using **Kotlin and Jetpack Compose** for the Android frontend and **Spring Boot with MongoDB** for the backend.
+Instant Mechanic is an Android application that helps users find mechanics and book vehicle services easily. The application provides a simple and user-friendly interface for browsing available mechanics, viewing mechanic details, selecting services, and confirming service requests.
 
 ---
 
-## 📱 Features
+## 📱 Screenshots
+
+The following screenshots demonstrate the main features and user flow of the application.
 
 ### 🏠 Home Screen
-- Displays available mechanics/garages.
-- Shows:
-  - Garage name
-  - Rating
-  - Distance
-  - Location
-  - Available services
-  - Open/Closed status
-- Search mechanics by:
-  - Garage name
-  - Location
-  - Service
-- Filter mechanics based on service category.
 
-### 🔧 Mechanic Details
-Users can view:
-- Garage name
-- Rating
-- Address
-- Available services
-- Working hours
-- Phone number
-- Open/Closed status
+![Home Screen](screenshots/home.png)
 
-### 📋 Book a Service
-Users can submit a service request by providing:
-- Customer name
-- Phone number
-- Vehicle number
-- Selected service
-- Problem description
-
-### ✅ Request Confirmation
-After submitting a service request, the user is shown a confirmation screen.
-
-### 📞 Contact Mechanic
-Users can use the Call button to open the device dialer with the mechanic's phone number.
-
-### 🔎 Search & Filter
-The application supports searching mechanics by garage name, location, and services.
-
-Service filtering is also available through filter chips.
-
-### 🧪 Unit Testing
-JUnit tests have been added for the mechanic search functionality.
-
-The current test suite covers:
-
-- Search by garage name
-- Search by location
-- Search by service
-- Empty search
-- No matching results
-
-All **5 unit tests pass successfully**.
+The Home Screen allows users to browse available services and mechanics using the available categories and filters.
 
 ---
 
-# 🛠️ Tech Stack
+### 🔧 Mechanic Details
+
+![Mechanic Details](screenshots/mechanic-details.png)
+
+Displays detailed information about a selected mechanic and the services provided.
+
+---
+
+### 📅 Book a Service
+
+![Book a Service](screenshots/book-service.png)
+
+Users can select a service and proceed with the booking process.
+
+---
+
+### ✅ Request Confirmed
+
+![Request Confirmed](screenshots/request-confirmed.png)
+
+Displays the confirmation after successfully submitting a service request.
+
+> **Note:** Replace the image paths above with the actual screenshot filenames you upload to the `screenshots/` folder.
+
+---
+
+# 📌 Project Overview
+
+Instant Mechanic is designed to simplify the process of finding and requesting vehicle repair and maintenance services.
+
+The application allows users to:
+
+- Browse available mechanics
+- Explore different vehicle services
+- Filter services
+- View mechanic details
+- Select a required service
+- Book/request a mechanic service
+- Receive confirmation after submitting a request
+
+---
+
+# ✨ Features
+
+### 👨‍🔧 Mechanic Discovery
+- View available mechanics
+- Browse mechanics through the home screen
+- View mechanic-related information
+
+### 🔍 Service Filtering
+- Filter available services
+- Select services based on user requirements
+
+### 📋 Mechanic Details
+- View detailed information about a mechanic
+- View available services
+- Navigate to the booking process
+
+### 📅 Service Booking
+- Select a required service
+- Submit a service request
+- Navigate through the booking flow
+
+### ✅ Request Confirmation
+- Displays confirmation after a successful service request
+
+### 🎨 User Interface
+- Modern Android UI
+- Built using Jetpack Compose
+- Responsive layouts
+- Reusable UI components
+
+---
+
+# 🛠️ Technology Stack
 
 ## Android
 
-- **Kotlin**
-- **Jetpack Compose**
-- **Material 3**
-- **MVVM-style architecture**
-- **Retrofit**
-- **Gson**
-- **Kotlin Coroutines**
-- **Navigation Compose**
-- **JUnit**
+- **Language:** Kotlin
+- **UI:** Jetpack Compose
+- **Architecture:** MVVM
+- **Networking:** Retrofit
+- **JSON Parsing:** Gson
+- **State Management:** ViewModel
+- **Navigation:** Jetpack Compose Navigation
+- **Build System:** Gradle / Kotlin DSL
 
-## Backend
+## Backend / API
 
-- **Java**
-- **Spring Boot**
-- **REST API**
-- **MongoDB**
-- **MongoDB Atlas**
-- **GridFS** for mechanic image storage
+The Android application communicates with a backend REST API to retrieve and manage mechanic/service data.
+
+- REST API
+- HTTP communication
+- JSON-based data exchange
 
 ---
 
 # 🏗️ Architecture
 
-The application follows an MVVM-inspired architecture with separation between UI, business logic, data access, and backend communication.
+The application follows the **MVVM (Model-View-ViewModel)** architecture.
 
 ```text
-                ┌──────────────────────┐
-                │     Jetpack Compose  │
-                │         UI           │
-                └──────────┬───────────┘
+                ┌─────────────────────┐
+                │     UI / Compose    │
+                │                     │
+                │  Home Screen        │
+                │  Details Screen     │
+                │  Booking Screen     │
+                └──────────┬──────────┘
                            │
                            ▼
-                ┌──────────────────────┐
-                │     ViewModel        │
-                │                      │
-                │ UI State             │
-                │ Loading/Error State  │
-                └──────────┬───────────┘
+                ┌─────────────────────┐
+                │      ViewModel      │
+                │                     │
+                │  UI State           │
+                │  Business Logic     │
+                └──────────┬──────────┘
                            │
                            ▼
-                ┌──────────────────────┐
-                │     Repository       │
-                │                      │
-                │ Data access layer    │
-                └──────────┬───────────┘
+                ┌─────────────────────┐
+                │     Repository      │
+                │                     │
+                │ Data Management     │
+                └──────────┬──────────┘
                            │
                            ▼
-                ┌──────────────────────┐
-                │       Retrofit       │
-                │      API Client      │
-                └──────────┬───────────┘
-                           │
-                           │ HTTP/JSON
-                           ▼
-                ┌──────────────────────┐
-                │    Spring Boot API   │
-                │                      │
-                │ REST Controllers     │
-                │ Service Layer        │
-                └──────────┬───────────┘
+                ┌─────────────────────┐
+                │     Retrofit API    │
+                │                     │
+                │     REST API        │
+                └──────────┬──────────┘
                            │
                            ▼
-                ┌──────────────────────┐
-                │      MongoDB         │
-                │    MongoDB Atlas     │
-                └──────────────────────┘
+                ┌─────────────────────┐
+                │       Backend       │
+                │                     │
+                │ Mechanic Data       │
+                │ Service Data        │
+                └─────────────────────┘
