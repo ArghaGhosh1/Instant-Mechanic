@@ -34,7 +34,7 @@ Users can select a service and proceed with the booking process.
 
 ### ✅ Request Confirmed
 
-![Request Confirmed](screenshots/request-confirmed.png)
+![Request Confirmed](https://github.com/ArghaGhosh1/Instant-Mechanic/blob/e3d62a594f8b42b50cee9aa3c77b76a05fef43d1/Screenshot%202026-09-03%20231408.png)
 
 Displays the confirmation after successfully submitting a service request.
 
