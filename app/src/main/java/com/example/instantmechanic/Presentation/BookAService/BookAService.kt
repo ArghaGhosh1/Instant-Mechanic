@@ -43,6 +43,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import com.example.instantmechanic.Navigation.Screen
 import com.example.instantmechanic.R
 import com.example.instantmechanic.model.Mechanic
 import kotlinx.coroutines.launch
@@ -50,7 +52,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BookAService(
-
+    navController: NavHostController,
     mechanic: Mechanic
 ) {
 
@@ -288,8 +290,9 @@ fun BookAService(
 
                         Button(
                             onClick = {
-
-
+                                navController.navigate(
+                                    Screen.RequestSubmittedScreen.route
+                                )
                             },
                             modifier = Modifier
                                 .fillMaxWidth()

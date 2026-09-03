@@ -42,8 +42,26 @@ import com.example.whatsappclone.presentation.homeScreen.BottomBar
 fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
                navController : NavHostController) {
 
-    var searchLawyer by remember {
+    var searchQuery by remember {
         mutableStateOf("")
+    }
+
+    val filteredMechanics = viewModel.mechanics.filter { mechanic ->
+
+        mechanic.garageName.contains(
+            searchQuery,
+            ignoreCase = true
+        ) ||
+                mechanic.location.contains(
+                    searchQuery,
+                    ignoreCase = true
+                ) ||
+                mechanic.services.any { service ->
+                    service.contains(
+                        searchQuery,
+                        ignoreCase = true
+                    )
+                }
     }
 
     val mechanics = viewModel.mechanics
@@ -98,8 +116,8 @@ fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
 
                 OutlinedTextField(
 
-                    value = searchLawyer,
-                    onValueChange = { searchLawyer = it },
+                    value = searchQuery,
+                    onValueChange = { searchQuery = it },
                     leadingIcon = {
                         Icon(
                             painter = painterResource(R.drawable.search),
@@ -149,7 +167,7 @@ fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
                 } else {
 
                     LazyColumn {
-                        items(mechanics) { mechanic ->
+                        items(filteredMechanics) { mechanic ->
 
                             GarageCard(
                                 mechanic = mechanic,

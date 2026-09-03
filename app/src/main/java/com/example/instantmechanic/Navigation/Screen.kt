@@ -9,4 +9,8 @@ sealed class Screen(var route: String) {
     object BookAServiceScreen : Screen(
         route = "bookAService/{mechanicId}"
     )
+
+    data object RequestSubmittedScreen: Screen("RequestSubmittedScreen")
+
+
 }

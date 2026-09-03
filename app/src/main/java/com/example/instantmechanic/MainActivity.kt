@@ -12,6 +12,7 @@ import com.example.instantmechanic.Navigation.setUpNavHost
 import com.example.instantmechanic.Presentation.BookAService.BookAService
 import com.example.instantmechanic.Presentation.HomeScreen.HomeScreen
 import com.example.instantmechanic.Presentation.MechanicDetailsScreen.MechanicDetailsScreen
+import com.example.instantmechanic.Presentation.RequestSubmitted.RequestSubmittedScreen
 import com.example.instantmechanic.model.Mechanic
 import com.example.instantmechanic.ui.theme.InstantMechanicTheme
 
@@ -34,6 +35,7 @@ class MainActivity : ComponentActivity() {
 
                 navController = rememberNavController()
                 setUpNavHost(navController as NavHostController)
+
 
             }
         }

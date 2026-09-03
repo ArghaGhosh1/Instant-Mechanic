@@ -10,6 +10,7 @@ import com.example.instantmechanic.MechanicViewModel
 import com.example.instantmechanic.Presentation.BookAService.BookAService
 import com.example.instantmechanic.Presentation.HomeScreen.HomeScreen
 import com.example.instantmechanic.Presentation.MechanicDetailsScreen.MechanicDetailsScreen
+import com.example.instantmechanic.Presentation.RequestSubmitted.RequestSubmittedScreen
 
 @Composable
 fun setUpNavHost(navController: NavHostController) {
@@ -53,9 +54,15 @@ fun setUpNavHost(navController: NavHostController) {
 
             if (mechanic != null) {
                 BookAService(
-                    mechanic = mechanic
+                    mechanic = mechanic,
+                    navController = navController
                 )
             }
+        }
+
+        composable(Screen.RequestSubmittedScreen.route) {
+
+            RequestSubmittedScreen(navController = navController)
         }
         
         
