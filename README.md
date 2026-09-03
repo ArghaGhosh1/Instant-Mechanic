@@ -26,7 +26,7 @@ Displays detailed information about a selected mechanic and the services provide
 
 ### 📅 Book a Service
 
-![Book a Service](screenshots/book-service.png)
+![Book a Service](https://github.com/ArghaGhosh1/Instant-Mechanic/blob/c6ed52460658bec7645c10063b1d6977bcc0ab4e/Screenshot%202026-09-03%20231042.png)
 
 Users can select a service and proceed with the booking process.
 
