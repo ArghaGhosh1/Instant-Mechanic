@@ -18,7 +18,7 @@ The Home Screen allows users to browse available services and mechanics using th
 
 ### 🔧 Mechanic Details
 
-![Mechanic Details]([screenshots/mechanic-details.png](https://github.com/ArghaGhosh1/Instant-Mechanic/blob/main/Screenshot%202026-09-03%20230827.png?raw=true))
+![Mechanic Details](https://github.com/ArghaGhosh1/Instant-Mechanic/blob/main/Screenshot%202026-09-03%20230827.png?raw=true)
 
 Displays detailed information about a selected mechanic and the services provided.
 
