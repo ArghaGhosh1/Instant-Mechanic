@@ -61,28 +61,34 @@ The application allows users to:
 # ✨ Features
 
 ### 👨‍🔧 Mechanic Discovery
+
 - View available mechanics
 - Browse mechanics through the home screen
 - View mechanic-related information
 
 ### 🔍 Service Filtering
+
 - Filter available services
 - Select services based on user requirements
 
 ### 📋 Mechanic Details
+
 - View detailed information about a mechanic
 - View available services
 - Navigate to the booking process
 
 ### 📅 Service Booking
+
 - Select a required service
 - Submit a service request
 - Navigate through the booking flow
 
 ### ✅ Request Confirmation
+
 - Displays confirmation after a successful service request
 
 ### 🎨 User Interface
+
 - Modern Android UI
 - Built using Jetpack Compose
 - Responsive layouts
@@ -92,7 +98,7 @@ The application allows users to:
 
 # 🛠️ Technology Stack
 
-## Android
+## 📱 Android Application
 
 - **Language:** Kotlin
 - **UI:** Jetpack Compose
@@ -103,19 +109,24 @@ The application allows users to:
 - **Navigation:** Jetpack Compose Navigation
 - **Build System:** Gradle / Kotlin DSL
 
-## Backend / API
+## ⚙️ Backend / API
 
-The Android application communicates with a backend REST API to retrieve and manage mechanic/service data.
+The Android application communicates with a **Spring Boot REST API** to retrieve and manage mechanic and service-related data.
 
-- REST API
-- HTTP communication
-- JSON-based data exchange
+- **Framework:** Spring Boot
+- **API:** REST API
+- **Communication:** HTTP
+- **Data Format:** JSON
+
+### 🔗 Backend Repository
+
+[View Instant Mechanic Backend](https://github.com/ArghaGhosh1/Instant-Mechanic-Backend)
 
 ---
 
 # 🏗️ Architecture
 
-The application follows the **MVVM (Model-View-ViewModel)** architecture.
+The application follows the **MVVM (Model-View-ViewModel)** architecture on the Android side, with a **Spring Boot REST API** serving as the backend.
 
 ```text
                 ┌─────────────────────┐
@@ -148,10 +159,13 @@ The application follows the **MVVM (Model-View-ViewModel)** architecture.
                 │     REST API        │
                 └──────────┬──────────┘
                            │
+                           │ HTTP / JSON
                            ▼
                 ┌─────────────────────┐
-                │       Backend       │
+                │   Spring Boot       │
+                │      Backend        │
                 │                     │
-                │ Mechanic Data       │
-                │ Service Data        │
+                │  REST Controllers   │
+                │  Business Logic     │
+                │  Service Management │
                 └─────────────────────┘
