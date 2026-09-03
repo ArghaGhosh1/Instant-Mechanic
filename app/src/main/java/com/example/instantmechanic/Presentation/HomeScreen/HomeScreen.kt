@@ -36,6 +36,7 @@ import androidx.navigation.NavHostController
 import com.example.instantmechanic.MechanicViewModel
 import com.example.instantmechanic.Navigation.Screen
 import com.example.instantmechanic.R
+import com.example.instantmechanic.util.filterMechanics
 import com.example.whatsappclone.presentation.homeScreen.BottomBar
 
 @Composable
@@ -48,24 +49,10 @@ fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
     var selectedFilter by remember {
         mutableStateOf("All Services")
     }
-
-    val filteredMechanics = viewModel.mechanics.filter { mechanic ->
-
-        mechanic.garageName.contains(
-            searchQuery,
-            ignoreCase = true
-        ) ||
-                mechanic.location.contains(
-                    searchQuery,
-                    ignoreCase = true
-                ) ||
-                mechanic.services.any { service ->
-                    service.contains(
-                        searchQuery,
-                        ignoreCase = true
-                    )
-                }
-    }
+    val filteredMechanics = filterMechanics(
+        mechanics = viewModel.mechanics,
+        searchQuery = searchQuery
+    )
 
 
 
