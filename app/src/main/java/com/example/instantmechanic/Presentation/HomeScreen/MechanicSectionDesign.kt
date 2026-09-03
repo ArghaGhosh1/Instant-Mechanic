@@ -1,9 +1,11 @@
 package com.example.instantmechanic.Presentation.HomeScreen
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -15,19 +17,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.instantmechanic.MechanicViewModel
 import com.example.instantmechanic.R
+import com.example.instantmechanic.model.Mechanic
 
 
 @Composable
 fun GarageCard(
     mechanic: Mechanic,
     modifier: Modifier = Modifier,
-    onBookClick: () -> Unit = {}
+    onBookClick: () -> Unit = {},
+    viewModel: MechanicViewModel= viewModel()
 ) {
+
 
     Card(
         modifier = modifier
@@ -50,7 +58,7 @@ fun GarageCard(
 
                 Image(
                     painter = painterResource(
-                        id = R.drawable.deemoimage
+                        id = R.drawable.garage
                     ),
                     contentDescription = "Garage",
                     modifier = Modifier.fillMaxSize(),
@@ -200,31 +208,12 @@ fun GarageCard(
 
 
                 // Services
-                Row(
+                LazyRow(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-
-                    Surface(
-                        shape = RoundedCornerShape(6.dp),
-                        color = Color(0xFFF5F5F5),
-                        border = BorderStroke(
-                            1.dp,
-                            Color(0xFFD5D5D5)
-                        )
-                    ) {
-
-                        Text(
-                            text = mechanic.services.toString(),
-                            modifier = Modifier.padding(
-                                horizontal = 10.dp,
-                                vertical = 6.dp
-                            ),
-                            fontSize = 12.sp,
-                            color = Color.DarkGray
-                        )
+                    items(mechanic.services) { service ->
+                        ServiceBox(service = service)
                     }
-
-
                 }
 
 
@@ -241,7 +230,7 @@ fun GarageCard(
                         .height(42.dp),
                     shape = RoundedCornerShape(5.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color.Black
+                        containerColor = colorResource(R.color.BookNowButtonColor)
                     )
                 ) {
 
@@ -249,7 +238,7 @@ fun GarageCard(
                         text = "Book Now",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = Color.Black
                     )
                 }
             }

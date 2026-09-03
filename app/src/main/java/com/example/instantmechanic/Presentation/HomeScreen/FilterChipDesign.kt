@@ -1,5 +1,6 @@
 package com.example.instantmechanic.Presentation.HomeScreen
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.height
 
 
@@ -53,7 +54,14 @@ fun FilterChipDesign(
             labelColor = Color.Black
         ),
 
-        border = null,
+        border = BorderStroke(
+            width = 1.dp,
+            color = if (isSelected) {
+                Color.Transparent
+            } else {
+                Color.Gray
+            }
+        ),
 
         modifier = Modifier.height(50.dp)
             .width(120.dp)

@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="selectedChipColor">#0F172A</color>
+    <color name="BookNowButtonColor">#f97316</color>
 </resources>

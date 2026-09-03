@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -30,11 +31,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.example.instantmechanic.MechanicViewModel
+import com.example.instantmechanic.Navigation.Screen
 import com.example.instantmechanic.R
+import com.example.whatsappclone.presentation.homeScreen.BottomBar
 
 @Composable
-fun HomeScreen( viewModel: MechanicViewModel) {
+fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
+               navController : NavHostController) {
 
     var searchLawyer by remember {
         mutableStateOf("")
@@ -44,7 +50,7 @@ fun HomeScreen( viewModel: MechanicViewModel) {
 
 
     Scaffold(
-
+        bottomBar = { BottomBar() }
 
     ) {
 
@@ -75,7 +81,7 @@ fun HomeScreen( viewModel: MechanicViewModel) {
 
 
                 Icon(
-                    painter = painterResource(R.drawable.search),
+                    painter = painterResource(R.drawable.bell),
                     contentDescription = null,
                     modifier = Modifier
                         .size(20.dp)
@@ -107,7 +113,7 @@ fun HomeScreen( viewModel: MechanicViewModel) {
 
                 )
 
-                Spacer(modifier = Modifier.height(5.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
                 LazyRow() {
 
@@ -125,14 +131,35 @@ fun HomeScreen( viewModel: MechanicViewModel) {
 
                 }
 
+                Spacer(modifier = Modifier.height(10.dp))
 
-                LazyColumn {
 
-                    items(mechanics) { mechanic ->
 
-                        GarageCard(mechanic = mechanic
+                if (viewModel.isLoading) {
 
-                        )
+                    CircularProgressIndicator()
+
+                } else if (viewModel.errorMessage != null) {
+
+                    Text(
+                        text = "Error: ${viewModel.errorMessage}",
+                        modifier = Modifier.padding(16.dp)
+                    )
+
+                } else {
+
+                    LazyColumn {
+                        items(mechanics) { mechanic ->
+
+                            GarageCard(
+                                mechanic = mechanic,
+                                onBookClick = {
+                                    navController.navigate(
+                                        "mechanicDetails/${mechanic.id}"
+                                    )
+                                }
+                            )
+                        }
                     }
                 }
 
