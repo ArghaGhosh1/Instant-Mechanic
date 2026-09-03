@@ -1,157 +1,161 @@
 # 🚗 Instant Mechanic
 
-Instant Mechanic is an Android application that helps users find mechanics and book vehicle services easily. The application provides a simple and user-friendly interface for browsing available mechanics, viewing mechanic details, selecting services, and confirming service requests.
+Instant Mechanic is an Android application designed to make it easier for users to find mechanics and request vehicle repair and maintenance services.
+
+The application provides a simple and user-friendly interface where users can browse available services, explore mechanic details, select a required service, and submit a service request.
 
 ---
 
-## 📱 Screenshots
+## 📱 Project Resources
 
-The following screenshots demonstrate the main features and user flow of the application.
+### 📱 Android Application
 
-### 🏠 Home Screen
+This repository contains the Android application source code.
 
-![Home Screen](screenshots/home.png)
+👉 **GitHub Repository:**  
+https://github.com/ArghaGhosh1/Instant-Mechanic
 
-The Home Screen allows users to browse available services and mechanics using the available categories and filters.
+### ⚙️ Backend
 
----
+The backend is developed separately using Spring Boot and provides the REST APIs required by the Android application.
 
-### 🔧 Mechanic Details
+👉 **Backend Repository:**  
+[View Backend GitHub Repository](YOUR_BACKEND_GITHUB_LINK)
 
-![Mechanic Details](screenshots/mechanic-details.png)
+### 🎥 Demo Video
 
-Displays detailed information about a selected mechanic and the services provided.
+A short demo video demonstrating the main application flow is available here:
 
----
-
-### 📅 Book a Service
-
-![Book a Service](screenshots/book-service.png)
-
-Users can select a service and proceed with the booking process.
-
----
-
-### ✅ Request Confirmed
-
-![Request Confirmed](screenshots/request-confirmed.png)
-
-Displays the confirmation after successfully submitting a service request.
-
-> **Note:** Replace the image paths above with the actual screenshot filenames you upload to the `screenshots/` folder.
+👉 **[▶️ Watch Instant Mechanic Demo](YOUR_DEMO_VIDEO_LINK)**
 
 ---
 
 # 📌 Project Overview
 
-Instant Mechanic is designed to simplify the process of finding and requesting vehicle repair and maintenance services.
+Finding a reliable mechanic and requesting vehicle services can be inconvenient. Instant Mechanic aims to simplify this process through a mobile application.
 
-The application allows users to:
+Users can:
 
 - Browse available mechanics
-- Explore different vehicle services
+- Explore vehicle services
 - Filter services
 - View mechanic details
 - Select a required service
-- Book/request a mechanic service
-- Receive confirmation after submitting a request
+- Submit a service request
+- View request confirmation
+
+The Android application communicates with the backend through REST APIs using Retrofit.
 
 ---
 
 # ✨ Features
 
-### 👨‍🔧 Mechanic Discovery
-- View available mechanics
-- Browse mechanics through the home screen
+## 👨‍🔧 Mechanic Discovery
+
+- Browse available mechanics
 - View mechanic-related information
+- Explore available services
 
-### 🔍 Service Filtering
-- Filter available services
-- Select services based on user requirements
+## 🔍 Service Filtering
 
-### 📋 Mechanic Details
-- View detailed information about a mechanic
-- View available services
-- Navigate to the booking process
+- Filter services according to user requirements
+- Easily find the required vehicle service
 
-### 📅 Service Booking
+## 📋 Mechanic Details
+
+- View detailed mechanic information
+- View services offered by the mechanic
+- Proceed to service booking
+
+## 📅 Book a Service
+
 - Select a required service
 - Submit a service request
 - Navigate through the booking flow
 
-### ✅ Request Confirmation
-- Displays confirmation after a successful service request
+## ✅ Request Confirmation
 
-### 🎨 User Interface
-- Modern Android UI
+- Displays confirmation after successfully submitting a service request
+- Provides a clear indication that the request has been completed
+
+## 🎨 Modern User Interface
+
 - Built using Jetpack Compose
+- Clean and modern UI
+- Reusable Compose components
 - Responsive layouts
-- Reusable UI components
+- Simple navigation between screens
 
 ---
 
 # 🛠️ Technology Stack
 
-## Android
+## 📱 Android
 
-- **Language:** Kotlin
-- **UI:** Jetpack Compose
-- **Architecture:** MVVM
-- **Networking:** Retrofit
-- **JSON Parsing:** Gson
-- **State Management:** ViewModel
-- **Navigation:** Jetpack Compose Navigation
-- **Build System:** Gradle / Kotlin DSL
+| Technology | Usage |
+|---|---|
+| Kotlin | Application development |
+| Jetpack Compose | UI development |
+| MVVM | Application architecture |
+| ViewModel | UI state and business logic |
+| Retrofit | REST API communication |
+| Gson | JSON parsing |
+| Jetpack Compose Navigation | Screen navigation |
+| Gradle Kotlin DSL | Build configuration |
 
-## Backend / API
+## ⚙️ Backend
 
-The Android application communicates with a backend REST API to retrieve and manage mechanic/service data.
-
-- REST API
-- HTTP communication
-- JSON-based data exchange
+| Technology | Usage |
+|---|---|
+| Java | Backend development |
+| Spring Boot | REST API development |
+| REST API | Client-server communication |
+| JSON | Data exchange |
 
 ---
 
 # 🏗️ Architecture
 
-The application follows the **MVVM (Model-View-ViewModel)** architecture.
+The Android application follows the **MVVM (Model-View-ViewModel)** architecture.
 
 ```text
-                ┌─────────────────────┐
-                │     UI / Compose    │
-                │                     │
-                │  Home Screen        │
-                │  Details Screen     │
-                │  Booking Screen     │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │      ViewModel      │
-                │                     │
-                │  UI State           │
-                │  Business Logic     │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │     Repository      │
-                │                     │
-                │ Data Management     │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │     Retrofit API    │
-                │                     │
-                │     REST API        │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │       Backend       │
-                │                     │
-                │ Mechanic Data       │
-                │ Service Data        │
-                └─────────────────────┘
+                    ┌─────────────────────┐
+                    │     UI Layer        │
+                    │                     │
+                    │  Jetpack Compose    │
+                    │                     │
+                    │  Home Screen        │
+                    │  Details Screen      │
+                    │  Booking Screen     │
+                    │  Confirmation       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │     ViewModel       │
+                    │                     │
+                    │  UI State           │
+                    │  Business Logic     │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │     Repository      │
+                    │                     │
+                    │  Data Management    │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │      Retrofit       │
+                    │                     │
+                    │     REST Client     │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │       Backend       │
+                    │                     │
+                    │    Spring Boot      │
+                    │      REST API       │
+                    └─────────────────────┘
