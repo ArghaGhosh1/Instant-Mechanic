@@ -10,7 +10,8 @@ The following screenshots demonstrate the main features and user flow of the app
 
 ### 🏠 Home Screen
 
-![Home Screen](screenshots/home.png)
+![Home Screen](/Screenshot 2026-09-03 225216.png
+)
 
 The Home Screen allows users to browse available services and mechanics using the available categories and filters.
 
