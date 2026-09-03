@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -56,6 +57,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.example.instantmechanic.Navigation.Screen
 import com.example.instantmechanic.R
 import com.example.instantmechanic.model.Mechanic
 
@@ -90,7 +92,11 @@ fun MechanicDetailsScreen(
                 ) {
 
                     IconButton(
-                        onClick = onBackClick
+                        onClick = onBackClick,
+                        modifier = Modifier.clickable{
+
+                            navController.navigate(Screen.HomeScreen.route)
+                        }
                     ) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,

@@ -45,6 +45,9 @@ fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
     var searchQuery by remember {
         mutableStateOf("")
     }
+    var selectedFilter by remember {
+        mutableStateOf("All Services")
+    }
 
     val filteredMechanics = viewModel.mechanics.filter { mechanic ->
 
@@ -64,7 +67,6 @@ fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
                 }
     }
 
-    val mechanics = viewModel.mechanics
 
 
     Scaffold(
@@ -82,7 +84,7 @@ fun HomeScreen(viewModel: MechanicViewModel= viewModel(),
             ) {
 
                 Icon(
-                    painter = painterResource(R.drawable.search),
+                    painter = painterResource(R.drawable.menu),
                     contentDescription = null,
                     modifier = Modifier
                         .size(20.dp)
