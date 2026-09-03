@@ -10,7 +10,7 @@ The following screenshots demonstrate the main features and user flow of the app
 
 ### 🏠 Home Screen
 
-![Home Screen](screenshots/home.png)
+![Home Screen]([screenshots/home.png](https://github.com/ArghaGhosh1/Instant-Mechanic/blob/296f27f6617671814fdc59ecf7c6e06a721871ff/Screenshot%202026-09-03%20225216.png))
 
 The Home Screen allows users to browse available services and mechanics using the available categories and filters.
 
